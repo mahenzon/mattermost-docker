@@ -54,7 +54,7 @@ RUN chmod +x /mattermost/bin/mattermost
 
 ENTRYPOINT ["/entrypoint.sh"]
 WORKDIR /mattermost
-CMD ["/mattermost/bin/mattermost"]
+CMD ["mattermost"]
 
 # Expose port 8000 of the container
 EXPOSE 8000

@@ -2,6 +2,9 @@
 
 echo "Running app as $(whoami)"
 
+# add mm bin to path
+PATH=/mattermost/bin:$PATH
+
 # Function to generate a random salt
 generate_salt() {
   tr -dc 'a-zA-Z0-9' </dev/urandom | fold -w 48 | head -n 1
