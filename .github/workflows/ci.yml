@@ -30,4 +30,4 @@ jobs:
           context: ./app
           file: ./app/Dockerfile
           push: true
-          tags: mahenzon/mattermost-enterprise:latest
+          tags: mahenzon/mattermost-enterprise:latest,mahenzon/mattermost-enterprise:5.29.2
