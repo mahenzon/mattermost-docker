@@ -65,7 +65,7 @@
         },
         {
             "name": "app",
-            "image": "mattermost/mattermost-prod-app:latest",
+            "image": "mahenzon/mattermost-enterprise:latest",
             "memory": 128,
             "essential": true,
             "mountPoints": [
