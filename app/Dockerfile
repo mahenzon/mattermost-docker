@@ -9,7 +9,7 @@ ENV MM_INSTALL_TYPE=docker
 ARG edition=enterprise
 ARG PUID=2000
 ARG PGID=2000
-ARG MM_BINARY=
+ARG MM_BINARY
 
 
 # Install some needed packages
@@ -39,13 +39,18 @@ RUN mkdir -p /mattermost/data /mattermost/plugins /mattermost/client/plugins \
 	&& chown -R mattermost:mattermost /mattermost /config.json.save /mattermost/plugins /mattermost/client/plugins \
 	&& setcap cap_net_bind_service=+ep /mattermost/bin/mattermost
 
-USER mattermost
+#USER mattermost
 
 #Healthcheck to make sure container is ready
 HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1
 
 # Configure entrypoint and command
 COPY entrypoint.sh /
+COPY mm-entrypoint.sh /
+
+RUN chmod +x /entrypoint.sh
+RUN chmod +x /mm-entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
 WORKDIR /mattermost
 CMD ["mattermost"]
