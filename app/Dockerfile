@@ -50,10 +50,11 @@ COPY mm-entrypoint.sh /
 
 RUN chmod +x /entrypoint.sh
 RUN chmod +x /mm-entrypoint.sh
+RUN chmod +x /mattermost/bin/mattermost
 
 ENTRYPOINT ["/entrypoint.sh"]
 WORKDIR /mattermost
-CMD ["mattermost"]
+CMD ["/mattermost/bin/mattermost"]
 
 # Expose port 8000 of the container
 EXPOSE 8000
